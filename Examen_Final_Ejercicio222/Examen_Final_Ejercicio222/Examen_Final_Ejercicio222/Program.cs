@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Examen_Final_Ejercicio222.Presentación;
 
 namespace Examen_Final_Ejercicio222
 {
@@ -16,7 +17,7 @@ namespace Examen_Final_Ejercicio222
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmPrincipal());
+            Application.Run(new Principal());
         }
     }
 }
