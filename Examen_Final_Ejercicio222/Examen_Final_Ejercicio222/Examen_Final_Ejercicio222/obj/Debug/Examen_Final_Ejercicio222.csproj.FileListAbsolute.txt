@@ -1,0 +1,14 @@
+C:\Users\familia romero\Source\Repos\Examen_Final_Ejercicio222\Examen_Final_Ejercicio222\Examen_Final_Ejercicio222\bin\Debug\Examen_Final_Ejercicio222.exe.config
+C:\Users\familia romero\Source\Repos\Examen_Final_Ejercicio222\Examen_Final_Ejercicio222\Examen_Final_Ejercicio222\bin\Debug\Examen_Final_Ejercicio222.exe
+C:\Users\familia romero\Source\Repos\Examen_Final_Ejercicio222\Examen_Final_Ejercicio222\Examen_Final_Ejercicio222\bin\Debug\Examen_Final_Ejercicio222.pdb
+C:\Users\familia romero\Source\Repos\Examen_Final_Ejercicio222\Examen_Final_Ejercicio222\Examen_Final_Ejercicio222\bin\Debug\MetroFramework.Design.dll
+C:\Users\familia romero\Source\Repos\Examen_Final_Ejercicio222\Examen_Final_Ejercicio222\Examen_Final_Ejercicio222\bin\Debug\MetroFramework.dll
+C:\Users\familia romero\Source\Repos\Examen_Final_Ejercicio222\Examen_Final_Ejercicio222\Examen_Final_Ejercicio222\bin\Debug\MetroFramework.Fonts.dll
+C:\Users\familia romero\Source\Repos\Examen_Final_Ejercicio222\Examen_Final_Ejercicio222\Examen_Final_Ejercicio222\obj\Debug\Examen_Final_Ejercicio222.csprojAssemblyReference.cache
+C:\Users\familia romero\Source\Repos\Examen_Final_Ejercicio222\Examen_Final_Ejercicio222\Examen_Final_Ejercicio222\obj\Debug\Examen_Final_Ejercicio222.frmPrincipal.resources
+C:\Users\familia romero\Source\Repos\Examen_Final_Ejercicio222\Examen_Final_Ejercicio222\Examen_Final_Ejercicio222\obj\Debug\Examen_Final_Ejercicio222.Properties.Resources.resources
+C:\Users\familia romero\Source\Repos\Examen_Final_Ejercicio222\Examen_Final_Ejercicio222\Examen_Final_Ejercicio222\obj\Debug\Examen_Final_Ejercicio222.csproj.GenerateResource.cache
+C:\Users\familia romero\Source\Repos\Examen_Final_Ejercicio222\Examen_Final_Ejercicio222\Examen_Final_Ejercicio222\obj\Debug\Examen_Final_Ejercicio222.csproj.CoreCompileInputs.cache
+C:\Users\familia romero\Source\Repos\Examen_Final_Ejercicio222\Examen_Final_Ejercicio222\Examen_Final_Ejercicio222\obj\Debug\Examen_Final_Ejercicio222.csproj.CopyComplete
+C:\Users\familia romero\Source\Repos\Examen_Final_Ejercicio222\Examen_Final_Ejercicio222\Examen_Final_Ejercicio222\obj\Debug\Examen_Final_Ejercicio222.exe
+C:\Users\familia romero\Source\Repos\Examen_Final_Ejercicio222\Examen_Final_Ejercicio222\Examen_Final_Ejercicio222\obj\Debug\Examen_Final_Ejercicio222.pdb
