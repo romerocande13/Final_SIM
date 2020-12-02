@@ -19,6 +19,9 @@ namespace Examen_Final_Ejercicio222.Lógica
         double desde;
         double hasta;
         double tiempo;
+        double maxEspera;
+        double chequesProcesados;
+        double acumCosto;
 
         public ClaseDatos()
         {
@@ -35,5 +38,8 @@ namespace Examen_Final_Ejercicio222.Lógica
         public double Desde { get => desde; set => desde = value; }
         public double Hasta { get => hasta; set => hasta = value; }
         public double Tiempo { get => tiempo; set => tiempo = value; }
+        public double MaxEspera { get => maxEspera; set => maxEspera = value; }
+        public double ChequesProcesados { get => chequesProcesados; set => chequesProcesados = value; }
+        public double AcumCosto { get => acumCosto; set => acumCosto = value; }
     }
 }

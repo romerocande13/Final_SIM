@@ -49,18 +49,19 @@ namespace Examen_Final_Ejercicio222.Presentación
             // List, HashTable
             Hashtable chequesHashTable = new Hashtable();
             Cheque chequeActual = new Cheque();
-
+            public ClaseDatos oResultados2 = new ClaseDatos();
+            MetroFramework.Forms.MetroForm frmSimulacion1;
 
 
 
             // Objetos de clases propias
-            Maquina maquina1 = new Maquina("Libre", 0);
+        Maquina maquina1 = new Maquina("Libre", 0);
             Maquina maquina2 = new Maquina("Libre", 0);
             GeneradorAleatorios generador = new GeneradorAleatorios();
 
             // Constructor
            
-            public Simulacion2(ClaseDatos oDatos)
+            public Simulacion2(ClaseDatos oDatos, MetroFramework.Forms.MetroForm frmSimulacion1)
             {
                 InitializeComponent();
                 this.WindowState = FormWindowState.Maximized;
@@ -75,9 +76,10 @@ namespace Examen_Final_Ejercicio222.Presentación
                 this.costoEspera = oDatos.CostoEspera;
                 this.desde = oDatos.Desde;
                 this.hasta = oDatos.Hasta;
-                this.tiempo = oDatos.Tiempo;
-                
-            }
+                this.tiempo = vidaUtil2;
+                this.frmSimulacion1 = frmSimulacion1;
+
+        }
             // SIMULACION MAQUINA 1 ...
 
             private void btnSimular_Click(object sender, EventArgs e)
@@ -195,7 +197,7 @@ namespace Examen_Final_Ejercicio222.Presentación
 
 
 
-                    //NO ENNTIENDO EL IF
+                    
 
                     if ((reloj >= desde && cantIteraciones <= hasta) || reloj >= tiempo)
                     {
@@ -227,6 +229,9 @@ namespace Examen_Final_Ejercicio222.Presentación
                 label5.Text = acumCosto.ToString();
                 label6.Text = maxEspera.ToString();
                 label7.Text = chequesProcesados.ToString();
+                oResultados2.AcumCosto = acumCosto;
+                oResultados2.MaxEspera = maxEspera;
+                oResultados2.ChequesProcesados = chequesProcesados;
             }
 
 
@@ -461,7 +466,12 @@ namespace Examen_Final_Ejercicio222.Presentación
                 return arrayAux;
             }
 
-        
+        private void btnVerSim1_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+
     }
 }
 

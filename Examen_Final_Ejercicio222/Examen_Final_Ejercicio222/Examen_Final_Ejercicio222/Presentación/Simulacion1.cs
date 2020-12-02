@@ -14,6 +14,17 @@ namespace Examen_Final_Ejercicio222.Presentación
 {
     public partial class Simulacion1 : MetroFramework.Forms.MetroForm
     {
+        //ENUM 
+        public enum FormMode
+        {
+            sim1,
+            sim2
+        }
+        private FormMode formMode;
+        public FormMode FormMode1 { get => formMode; set => formMode = value; }
+        
+
+
         //INICIALIZACION DE VARIABLES
 
         // String
@@ -55,9 +66,14 @@ namespace Examen_Final_Ejercicio222.Presentación
         Maquina maquina1 = new Maquina("Libre", 0);
         Maquina maquina2 = new Maquina("Libre", 0);
         GeneradorAleatorios generador = new GeneradorAleatorios();
+        public ClaseDatos oResultados1 = new ClaseDatos();
+        MetroFramework.Controls.MetroGrid dgvSIM;
+        public ClaseDatos oResultados2 = new ClaseDatos();
+
+
 
         // Constructor
-        public Simulacion1(ClaseDatos oDatos)
+        public Simulacion1(ClaseDatos oDatos, string modo)
         {
             InitializeComponent();
             this.WindowState = FormWindowState.Maximized;
@@ -73,7 +89,14 @@ namespace Examen_Final_Ejercicio222.Presentación
             this.desde = oDatos.Desde;
             this.hasta = oDatos.Hasta;
             this.tiempo = oDatos.Tiempo;
-            
+            if (modo.Equals("sim1"))
+            {
+                this.FormMode1 = FormMode.sim1;
+            }
+            else if (modo.Equals("sim2"))
+            {
+                this.FormMode1 = FormMode.sim2;
+            }
 
         }
 
@@ -83,6 +106,18 @@ namespace Examen_Final_Ejercicio222.Presentación
 
         private void btnSimular_Click(object sender, EventArgs e)
         {
+            if (formMode == FormMode.sim1)
+            {
+                dgvSIM = dgvSimulacion1;
+                this.tiempo = vidaUtil1;
+            }
+            else if (formMode == FormMode.sim2)
+            {
+                dgvSIM = dgvSimulacion2;
+                this.tiempo = vidaUtil2;
+
+            }
+
             // PRIMERA ITERACION
 
             nroIteracion = 0;
@@ -107,7 +142,7 @@ namespace Examen_Final_Ejercicio222.Presentación
             maxEspera = 0;
             cantCheques = 0;
 
-            dgvSimulacion1.Rows.Add(
+            dgvSIM.Rows.Add(
                 nroIteracion,
                 evento,
                 reloj,
@@ -196,25 +231,25 @@ namespace Examen_Final_Ejercicio222.Presentación
 
 
 
-                //NO ENNTIENDO EL IF
+                
 
                 if ((reloj >= desde && cantIteraciones <= hasta) || reloj >= tiempo)
                 {
                     string[] fila = cargarFila();
 
-                    dgvSimulacion1.Rows.Add(fila);
+                    dgvSIM.Rows.Add(fila);
 
                     //Para cargar los estados de los cheques correspondientes...
                     foreach (DictionaryEntry item in chequesHashTable)
                     {
                         Cheque aux = (Cheque)item.Value;
 
-                        if (dgvSimulacion1.Columns["colCheque" + aux.Id.ToString()] != null)
+                        if (dgvSIM.Columns["colCheque" + aux.Id.ToString()] != null)
                         {
                             if (!(aux.Estado.Equals("")))
                             {
-                                dgvSimulacion1.Rows[dgvSimulacion1.Rows.Count - 1].Cells["colCheque" + aux.Id.ToString()].Value = aux.Estado;
-                                dgvSimulacion1.Rows[dgvSimulacion1.Rows.Count - 1].Cells["colHoraLlegada" + aux.Id.ToString().ToString()].Value = aux.HoraLlegada;
+                                dgvSIM.Rows[dgvSIM.Rows.Count - 1].Cells["colCheque" + aux.Id.ToString()].Value = aux.Estado;
+                                dgvSIM.Rows[dgvSIM.Rows.Count - 1].Cells["colHoraLlegada" + aux.Id.ToString().ToString()].Value = aux.HoraLlegada;
                             }
                         }
                     }
@@ -222,11 +257,31 @@ namespace Examen_Final_Ejercicio222.Presentación
 
 
             }
-            //DATOS DE RESUMEN 
 
-            label5.Text = acumCosto.ToString();
-            label6.Text = maxEspera.ToString();
-            label7.Text = chequesProcesados.ToString();
+            if (formMode == FormMode.sim1)
+            {
+                //DATOS DE RESUMEN 1
+
+                label5.Text = acumCosto.ToString();
+                label6.Text = maxEspera.ToString();
+                label7.Text = chequesProcesados.ToString();
+                oResultados1.AcumCosto = acumCosto;
+                oResultados1.MaxEspera = maxEspera;
+                oResultados1.ChequesProcesados = chequesProcesados;
+            }
+            else if (formMode == FormMode.sim2)
+            {
+                //DATOS DE RESUMEN 2
+
+                label10.Text = acumCosto.ToString();
+                label9.Text = maxEspera.ToString();
+                label8.Text = chequesProcesados.ToString();
+                oResultados2.AcumCosto = acumCosto;
+                oResultados2.MaxEspera = maxEspera;
+                oResultados2.ChequesProcesados = chequesProcesados;
+
+            }
+            limpiarVariables();
         }
 
 
@@ -398,7 +453,7 @@ namespace Examen_Final_Ejercicio222.Presentación
             columna1.FillWeight = 10;
             columna1.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
 
-            dgvSimulacion1.Columns.Add(columna1);
+            dgvSIM.Columns.Add(columna1);
 
             DataGridViewColumn columna2 = new DataGridViewColumn();
 
@@ -408,7 +463,7 @@ namespace Examen_Final_Ejercicio222.Presentación
             columna2.FillWeight = 10;
             columna2.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
 
-            dgvSimulacion1.Columns.Add(columna2);
+            dgvSIM.Columns.Add(columna2);
         }
 
         private void actualizarEstadoCheque()
@@ -461,7 +516,55 @@ namespace Examen_Final_Ejercicio222.Presentación
             return arrayAux;
         }
 
+        private void btnVerSim2_Click(object sender, EventArgs e)
+        {
+            this.FormMode1 = FormMode.sim2;
+            btnVerSim2.Visible = false;
+            btnVerSim1.Visible = true;
+            label1.Text = "SIMULACION CON MAQUINA 2";
+            dgvSimulacion2.Visible = true;
+            dgvSimulacion1.Visible = false;
+            metroPanel1.Visible = false;
+            metroPanel2.Visible = true;
+
+
+        }
+        private void btnVerSim1_Click(object sender, EventArgs e)
+        {
+            this.FormMode1 = FormMode.sim1;
+            btnVerSim1.Visible = false;            
+            btnVerSim2.Visible = true;
+            label1.Text = "SIMULACION CON MAQUINA 1";
+            dgvSimulacion1.Visible = true;
+            dgvSimulacion2.Visible = false;
+            metroPanel2.Visible = false;
+            metroPanel1.Visible = true;
+
+        }
+        private void limpiarVariables()
+        {
+            evento = "";
+            rnd = "";
+            tiempoEntreLlegada = "";
+            proximaLlegada = "";
+            tiempoAtencion = "";
+            finProcesamiento = "";
+            reloj=0.0;
+            acumCosto = 0.0;
+            chequesProcesados = 0;
+            maxEspera = 0.0;
+            nroIteracion = 0;
+            cantIteraciones = 0;
+            cantCheques = 0;
+            media = 0.0;
+            chequesHashTable = new Hashtable();
+            chequeActual = new Cheque();
+            maquina1 = new Maquina("Libre", 0);
+            maquina2 = new Maquina("Libre", 0);          
+              
         
+        }
+
     }
 }
 

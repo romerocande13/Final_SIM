@@ -17,14 +17,15 @@ namespace Examen_Final_Ejercicio222.Presentación
 
         //INICIALIZACION DE VARIABLES
         ClaseDatos oDatos = new ClaseDatos();
-           
+        Simulacion1 frmSimulacion1;
+        Simulacion2 frmSimulacion2;
 
         public Datos()
         {
             InitializeComponent();
             this.StyleManager = metroStyleManager1;
             datosHarcodeados();
-            
+
         }
 
 
@@ -187,21 +188,80 @@ namespace Examen_Final_Ejercicio222.Presentación
 
         private void btnSimulacion1_Click(object sender, EventArgs e)
         {
-            if(ValidarCampos())
+            if (ValidarCampos())
             {
                 oDatos = grabar();
-                Simulacion1 frmPrincipal = new Simulacion1(oDatos);
-                frmPrincipal.Show();
+                frmSimulacion1 = new Simulacion1(oDatos, "sim1");                
+                frmSimulacion1.Show();
             }
         }
 
         private void btnSimulacion2_Click(object sender, EventArgs e)
         {
+            //if (ValidarCampos())
+            //{
+            //    oDatos = grabar();
+            //    frmSimulacion2 = new Simulacion2(oDatos);
+            //    frmSimulacion2.Show();
+            //}
             if (ValidarCampos())
             {
                 oDatos = grabar();
-                Simulacion2 frmSimulacion2 = new Simulacion2(oDatos);
-                frmSimulacion2.Show();
+                frmSimulacion1 = new Simulacion1(oDatos, "sim2");                
+                frmSimulacion1.Show();
+            }
+        }
+
+        //private void BorrarMensajesError()
+        //{
+        //    errorNuloProvider.SetError(txtTiempo, "");
+        //    errorNuloProvider.SetError(txtHasta, "");
+        //    errorNuloProvider.SetError(txtMedia, "");
+        //    errorNuloProvider.SetError(txtTiempoAtA, "");
+        //    errorNuloProvider.SetError(txtTiempoAtB, "");
+        //    errorNuloProvider.SetError(txtTiempoCocA, "");
+        //    errorNuloProvider.SetError(txtTiempoCocB, "");
+        //    errorNuloProvider.SetError(txtDesde, "");
+
+        //    errorDatoIncorrectoProvider.SetError(txtTiempo, "");
+        //    errorDatoIncorrectoProvider.SetError(txtHasta, "");
+        //    errorDatoIncorrectoProvider.SetError(txtMedia, "");
+        //    errorDatoIncorrectoProvider.SetError(txtTiempoAtA, "");
+        //    errorDatoIncorrectoProvider.SetError(txtTiempoAtB, "");
+        //    errorDatoIncorrectoProvider.SetError(txtTiempoCocA, "");
+        //    errorDatoIncorrectoProvider.SetError(txtTiempoCocB, "");
+        //    errorDatoIncorrectoProvider.SetError(txtDesde, "");
+        //    errorDatoIncorrectoProvider.SetError(dgvProbDestino, "");
+        //}
+
+        private void tabControl2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (tabControl2.SelectedTab.Name == "resultados")
+            {
+                double acumCosto1 = frmSimulacion1.oResultados1.AcumCosto;
+                label14.Text = acumCosto1.ToString();
+                label15.Text = frmSimulacion1.oResultados1.MaxEspera.ToString();
+                label16.Text= frmSimulacion1.oResultados1.ChequesProcesados.ToString();
+                double acumCosto2 = frmSimulacion1.oResultados2.AcumCosto;
+                label25.Text= acumCosto2.ToString();
+                label23.Text= frmSimulacion1.oResultados2.MaxEspera.ToString();
+                label20.Text= frmSimulacion1.oResultados2.ChequesProcesados.ToString();
+
+
+                if (acumCosto1 < acumCosto2)
+                {
+                    label27.Text = "Al banco le conviene adquirir la maquina 1";
+                }
+                else if (acumCosto1 > acumCosto2)
+                {
+                    label27.Text = "Al banco le conviene adquirir la maquina 2";
+
+                }
+                else
+                {
+                    label27.Text = "El Banco podrá adquirir cualquiera de las dos maquinas";
+
+                }
             }
         }
     }
