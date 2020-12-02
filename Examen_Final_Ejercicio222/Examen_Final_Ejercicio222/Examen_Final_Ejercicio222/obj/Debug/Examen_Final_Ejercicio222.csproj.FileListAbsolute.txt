@@ -26,5 +26,4 @@ C:\Users\familia romero\Desktop\Final_SIM\Examen_Final_Ejercicio222\Examen_Final
 C:\Users\familia romero\Desktop\Final_SIM\Examen_Final_Ejercicio222\Examen_Final_Ejercicio222\Examen_Final_Ejercicio222\obj\Debug\Examen_Final_Ejercicio222.exe
 C:\Users\familia romero\Desktop\Final_SIM\Examen_Final_Ejercicio222\Examen_Final_Ejercicio222\Examen_Final_Ejercicio222\obj\Debug\Examen_Final_Ejercicio222.pdb
 C:\Users\familia romero\Desktop\Final_SIM\Examen_Final_Ejercicio222\Examen_Final_Ejercicio222\Examen_Final_Ejercicio222\obj\Debug\Examen_Final_Ejercicio222.Presentación.Datos.resources
-C:\Users\familia romero\Desktop\Final_SIM\Examen_Final_Ejercicio222\Examen_Final_Ejercicio222\Examen_Final_Ejercicio222\obj\Debug\Examen_Final_Ejercicio222.Presentación.Simulacion2.resources
 C:\Users\familia romero\Desktop\Final_SIM\Examen_Final_Ejercicio222\Examen_Final_Ejercicio222\Examen_Final_Ejercicio222\obj\Debug\Examen_Final_Ejercicio222.Presentación.Simulacion1.resources

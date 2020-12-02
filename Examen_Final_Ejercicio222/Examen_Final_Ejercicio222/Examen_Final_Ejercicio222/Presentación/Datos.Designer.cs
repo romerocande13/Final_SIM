@@ -55,12 +55,12 @@
             this.txtVidaUtil1 = new MetroFramework.Controls.MetroTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnSimulacion1 = new MetroFramework.Controls.MetroButton();
-            this.btnBorrar = new MetroFramework.Controls.MetroButton();
-            this.btnSimulacion2 = new MetroFramework.Controls.MetroButton();
             this.error = new System.Windows.Forms.ErrorProvider(this.components);
             this.metroStyleManager1 = new MetroFramework.Components.MetroStyleManager(this.components);
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.txtIteraciones = new MetroFramework.Controls.MetroTextBox();
+            this.label26 = new System.Windows.Forms.Label();
             this.resultados = new System.Windows.Forms.TabPage();
             this.label30 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
@@ -78,8 +78,7 @@
             this.label15 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
-            this.txtIteraciones = new MetroFramework.Controls.MetroTextBox();
-            this.label26 = new System.Windows.Forms.Label();
+            this.btnBorrar = new MetroFramework.Controls.MetroButton();
             ((System.ComponentModel.ISupportInitialize)(this.error)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager1)).BeginInit();
             this.tabControl2.SuspendLayout();
@@ -601,7 +600,7 @@
             this.btnSimulacion1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(177)))), ((int)(((byte)(202)))));
             this.btnSimulacion1.FontSize = MetroFramework.MetroButtonSize.Medium;
             this.btnSimulacion1.ForeColor = System.Drawing.Color.White;
-            this.btnSimulacion1.Location = new System.Drawing.Point(851, 313);
+            this.btnSimulacion1.Location = new System.Drawing.Point(992, 313);
             this.btnSimulacion1.Name = "btnSimulacion1";
             this.btnSimulacion1.Size = new System.Drawing.Size(125, 51);
             this.btnSimulacion1.TabIndex = 51;
@@ -611,37 +610,6 @@
             this.btnSimulacion1.UseCustomForeColor = true;
             this.btnSimulacion1.UseSelectable = true;
             this.btnSimulacion1.Click += new System.EventHandler(this.btnSimulacion1_Click);
-            // 
-            // btnBorrar
-            // 
-            this.btnBorrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(177)))), ((int)(((byte)(202)))));
-            this.btnBorrar.FontSize = MetroFramework.MetroButtonSize.Medium;
-            this.btnBorrar.ForeColor = System.Drawing.Color.White;
-            this.btnBorrar.Location = new System.Drawing.Point(1145, 313);
-            this.btnBorrar.Name = "btnBorrar";
-            this.btnBorrar.Size = new System.Drawing.Size(139, 51);
-            this.btnBorrar.TabIndex = 50;
-            this.btnBorrar.Text = "LIMPIAR";
-            this.btnBorrar.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.btnBorrar.UseCustomBackColor = true;
-            this.btnBorrar.UseCustomForeColor = true;
-            this.btnBorrar.UseSelectable = true;
-            // 
-            // btnSimulacion2
-            // 
-            this.btnSimulacion2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(177)))), ((int)(((byte)(202)))));
-            this.btnSimulacion2.FontSize = MetroFramework.MetroButtonSize.Medium;
-            this.btnSimulacion2.ForeColor = System.Drawing.Color.White;
-            this.btnSimulacion2.Location = new System.Drawing.Point(1001, 313);
-            this.btnSimulacion2.Name = "btnSimulacion2";
-            this.btnSimulacion2.Size = new System.Drawing.Size(125, 51);
-            this.btnSimulacion2.TabIndex = 52;
-            this.btnSimulacion2.Text = "SIMULAR \r\nMAQUINA 2";
-            this.btnSimulacion2.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.btnSimulacion2.UseCustomBackColor = true;
-            this.btnSimulacion2.UseCustomForeColor = true;
-            this.btnSimulacion2.UseSelectable = true;
-            this.btnSimulacion2.Click += new System.EventHandler(this.btnSimulacion2_Click);
             // 
             // error
             // 
@@ -669,7 +637,6 @@
             this.tabPage2.Controls.Add(this.txtIteraciones);
             this.tabPage2.Controls.Add(this.label26);
             this.tabPage2.Controls.Add(this.txtProcesamiento1);
-            this.tabPage2.Controls.Add(this.btnSimulacion2);
             this.tabPage2.Controls.Add(this.txtVidaUtil1);
             this.tabPage2.Controls.Add(this.btnSimulacion1);
             this.tabPage2.Controls.Add(this.btnBorrar);
@@ -703,6 +670,49 @@
             this.tabPage2.TabIndex = 0;
             this.tabPage2.Text = "DATOS";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // txtIteraciones
+            // 
+            // 
+            // 
+            // 
+            this.txtIteraciones.CustomButton.Image = null;
+            this.txtIteraciones.CustomButton.Location = new System.Drawing.Point(79, 2);
+            this.txtIteraciones.CustomButton.Margin = new System.Windows.Forms.Padding(1);
+            this.txtIteraciones.CustomButton.Name = "";
+            this.txtIteraciones.CustomButton.Size = new System.Drawing.Size(25, 25);
+            this.txtIteraciones.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txtIteraciones.CustomButton.TabIndex = 1;
+            this.txtIteraciones.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txtIteraciones.CustomButton.UseSelectable = true;
+            this.txtIteraciones.CustomButton.Visible = false;
+            this.txtIteraciones.Lines = new string[0];
+            this.txtIteraciones.Location = new System.Drawing.Point(1177, 220);
+            this.txtIteraciones.MaxLength = 32767;
+            this.txtIteraciones.Name = "txtIteraciones";
+            this.txtIteraciones.PasswordChar = '\0';
+            this.txtIteraciones.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtIteraciones.SelectedText = "";
+            this.txtIteraciones.SelectionLength = 0;
+            this.txtIteraciones.SelectionStart = 0;
+            this.txtIteraciones.ShortcutsEnabled = true;
+            this.txtIteraciones.Size = new System.Drawing.Size(107, 30);
+            this.txtIteraciones.TabIndex = 55;
+            this.txtIteraciones.UseSelectable = true;
+            this.txtIteraciones.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.txtIteraciones.WaterMarkFont = new System.Drawing.Font("Montserrat", 10.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.BackColor = System.Drawing.Color.Transparent;
+            this.label26.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label26.Font = new System.Drawing.Font("Montserrat", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label26.Location = new System.Drawing.Point(1021, 227);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(150, 23);
+            this.label26.TabIndex = 54;
+            this.label26.Text = "Cant Iteraciones";
             // 
             // resultados
             // 
@@ -931,48 +941,20 @@
             this.label16.TabIndex = 38;
             this.label16.Text = "-";
             // 
-            // txtIteraciones
+            // btnBorrar
             // 
-            // 
-            // 
-            // 
-            this.txtIteraciones.CustomButton.Image = null;
-            this.txtIteraciones.CustomButton.Location = new System.Drawing.Point(79, 2);
-            this.txtIteraciones.CustomButton.Margin = new System.Windows.Forms.Padding(1);
-            this.txtIteraciones.CustomButton.Name = "";
-            this.txtIteraciones.CustomButton.Size = new System.Drawing.Size(25, 25);
-            this.txtIteraciones.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.txtIteraciones.CustomButton.TabIndex = 1;
-            this.txtIteraciones.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.txtIteraciones.CustomButton.UseSelectable = true;
-            this.txtIteraciones.CustomButton.Visible = false;
-            this.txtIteraciones.Lines = new string[0];
-            this.txtIteraciones.Location = new System.Drawing.Point(1177, 220);
-            this.txtIteraciones.MaxLength = 32767;
-            this.txtIteraciones.Name = "txtIteraciones";
-            this.txtIteraciones.PasswordChar = '\0';
-            this.txtIteraciones.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.txtIteraciones.SelectedText = "";
-            this.txtIteraciones.SelectionLength = 0;
-            this.txtIteraciones.SelectionStart = 0;
-            this.txtIteraciones.ShortcutsEnabled = true;
-            this.txtIteraciones.Size = new System.Drawing.Size(107, 30);
-            this.txtIteraciones.TabIndex = 55;
-            this.txtIteraciones.UseSelectable = true;
-            this.txtIteraciones.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.txtIteraciones.WaterMarkFont = new System.Drawing.Font("Montserrat", 10.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.BackColor = System.Drawing.Color.Transparent;
-            this.label26.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label26.Font = new System.Drawing.Font("Montserrat", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label26.Location = new System.Drawing.Point(1021, 227);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(150, 23);
-            this.label26.TabIndex = 54;
-            this.label26.Text = "Cant Iteraciones";
+            this.btnBorrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(177)))), ((int)(((byte)(202)))));
+            this.btnBorrar.FontSize = MetroFramework.MetroButtonSize.Medium;
+            this.btnBorrar.ForeColor = System.Drawing.Color.White;
+            this.btnBorrar.Location = new System.Drawing.Point(1145, 313);
+            this.btnBorrar.Name = "btnBorrar";
+            this.btnBorrar.Size = new System.Drawing.Size(139, 51);
+            this.btnBorrar.TabIndex = 50;
+            this.btnBorrar.Text = "LIMPIAR";
+            this.btnBorrar.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.btnBorrar.UseCustomBackColor = true;
+            this.btnBorrar.UseCustomForeColor = true;
+            this.btnBorrar.UseSelectable = true;
             // 
             // Datos
             // 
@@ -1021,8 +1003,6 @@
         private MetroFramework.Controls.MetroTextBox txtVidaUtil1;
         private System.Windows.Forms.Label label1;
         private MetroFramework.Controls.MetroButton btnSimulacion1;
-        private MetroFramework.Controls.MetroButton btnBorrar;
-        private MetroFramework.Controls.MetroButton btnSimulacion2;
         private System.Windows.Forms.ErrorProvider error;
         private MetroFramework.Components.MetroStyleManager metroStyleManager1;
         private System.Windows.Forms.TabControl tabControl2;
@@ -1046,5 +1026,6 @@
         private System.Windows.Forms.Label label30;
         private MetroFramework.Controls.MetroTextBox txtIteraciones;
         private System.Windows.Forms.Label label26;
+        private MetroFramework.Controls.MetroButton btnBorrar;
     }
 }

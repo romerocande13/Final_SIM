@@ -238,26 +238,26 @@ namespace Examen_Final_Ejercicio222.Presentación
 
                 
 
-                if (reloj >= desde && cantIteraciones <= hasta || nroIteracion == Iteraciones) 
+                if ((reloj >= desde && cantIteraciones <= hasta) || nroIteracion == Iteraciones) 
                 {
                     string[] fila = cargarFila();
 
                     dgvSIM.Rows.Add(fila);
 
-                    //Para cargar los estados de los cheques correspondientes...
-                    //foreach (DictionaryEntry item in chequesHashTable)
-                    //{
-                    //    Cheque aux = (Cheque)item.Value;
+                   // Para cargar los estados de los cheques correspondientes...
+                    foreach (DictionaryEntry item in chequesHashTable)
+                    {
+                        Cheque aux = (Cheque)item.Value;
 
-                    //    if (dgvSIM.Columns["colCheque" + aux.Id.ToString()] != null)
-                    //    {
-                    //        if (!(aux.Estado.Equals("")))
-                    //        {
-                    //            dgvSIM.Rows[dgvSIM.Rows.Count - 1].Cells["colCheque" + aux.Id.ToString()].Value = aux.Estado;
-                    //            dgvSIM.Rows[dgvSIM.Rows.Count - 1].Cells["colHoraLlegada" + aux.Id.ToString().ToString()].Value = aux.HoraLlegada;
-                    //        }
-                    //    }
-                    //}
+                        if (dgvSIM.Columns["colCheque" + aux.Id.ToString()] != null)
+                        {
+                            if (!(aux.Estado.Equals("")))
+                            {
+                                dgvSIM.Rows[dgvSIM.Rows.Count - 1].Cells["colCheque" + aux.Id.ToString()].Value = aux.Estado;
+                                dgvSIM.Rows[dgvSIM.Rows.Count - 1].Cells["colHoraLlegada" + aux.Id.ToString().ToString()].Value = aux.HoraLlegada;
+                            }
+                        }
+                    }
                 }
 
 
@@ -335,7 +335,7 @@ namespace Examen_Final_Ejercicio222.Presentación
                 chequesHashTable.Add(oCheque.Id, oCheque);
 
                 //Se agrega la columna de cheque..
-                //agregarColumnaCheque(oCheque);
+                agregarColumnaCheque(oCheque);
             }
         }
 
@@ -416,7 +416,7 @@ namespace Examen_Final_Ejercicio222.Presentación
 
         private void generarFinProcesamiento(double procesamiento)
         {  
-            tiempoAtencion = ((1/procesamiento1)).ToString();
+            tiempoAtencion = ((1/procesamiento1)*10000).ToString();
             finProcesamiento = (double.Parse(tiempoAtencion) + reloj).ToString();
         }
 

@@ -18,7 +18,7 @@ namespace Examen_Final_Ejercicio222.Presentación
         //INICIALIZACION DE VARIABLES
         ClaseDatos oDatos = new ClaseDatos();
         Simulacion1 frmSimulacion1;
-        Simulacion2 frmSimulacion2;
+
 
         public Datos()
         {
@@ -184,6 +184,17 @@ namespace Examen_Final_Ejercicio222.Presentación
                 ok = false;
                 error.SetError(txtHasta, "Debe ingresar un valor mayor a 0");
             }
+
+            if (txtIteraciones.Text.Equals(""))
+            {
+                ok = false;
+                error.SetError(txtIteraciones, "Ingrese algún valor");
+            }
+            else if (txtIteraciones.Text.Equals("0"))
+            {
+                ok = false;
+                error.SetError(txtIteraciones, "Debe ingresar un valor mayor a 0");
+            }
             return ok;
         }
 
@@ -193,27 +204,12 @@ namespace Examen_Final_Ejercicio222.Presentación
             {
                 BorrarMensajesError();
                 oDatos = grabar();
-                frmSimulacion1 = new Simulacion1(oDatos, "sim1");                
+                frmSimulacion1 = new Simulacion1(oDatos, "sim1");
                 frmSimulacion1.Show();
             }
         }
 
-        private void btnSimulacion2_Click(object sender, EventArgs e)
-        {
-            //if (ValidarCampos())
-            //{
-            //    oDatos = grabar();
-            //    frmSimulacion2 = new Simulacion2(oDatos);
-            //    frmSimulacion2.Show();
-            //}
-            if (ValidarCampos())
-            {
-                BorrarMensajesError();
-                oDatos = grabar();
-                frmSimulacion1 = new Simulacion1(oDatos, "sim2");                
-                frmSimulacion1.Show();
-            }
-        }
+
 
         private void BorrarMensajesError()
         {
@@ -227,9 +223,11 @@ namespace Examen_Final_Ejercicio222.Presentación
             error.SetError(txtCostoEspera, "");
 
             error.SetError(txtDesde, "");
-            error.SetError(txtHasta, "");            
-            
-        }   
+            error.SetError(txtHasta, "");
+            error.SetError(txtIteraciones, "");
+
+
+        }
 
 
 
@@ -243,11 +241,11 @@ namespace Examen_Final_Ejercicio222.Presentación
                 double acumCosto1 = frmSimulacion1.oResultados1.AcumCosto;
                 label14.Text = acumCosto1.ToString();
                 label15.Text = frmSimulacion1.oResultados1.MaxEspera.ToString();
-                label16.Text= frmSimulacion1.oResultados1.ChequesProcesados.ToString();
+                label16.Text = frmSimulacion1.oResultados1.ChequesProcesados.ToString();
                 double acumCosto2 = frmSimulacion1.oResultados2.AcumCosto;
-                label25.Text= acumCosto2.ToString();
-                label23.Text= frmSimulacion1.oResultados2.MaxEspera.ToString();
-                label20.Text= frmSimulacion1.oResultados2.ChequesProcesados.ToString();
+                label25.Text = acumCosto2.ToString();
+                label23.Text = frmSimulacion1.oResultados2.MaxEspera.ToString();
+                label20.Text = frmSimulacion1.oResultados2.ChequesProcesados.ToString();
 
 
                 if (acumCosto1 < acumCosto2)
@@ -294,7 +292,8 @@ namespace Examen_Final_Ejercicio222.Presentación
                 e.Handled = true;
             }
         }
-
+        
+    
         private void txtCosto1_KeyPress(object sender, KeyPressEventArgs e)
         {
             validarDouble(sender, e);
@@ -344,5 +343,6 @@ namespace Examen_Final_Ejercicio222.Presentación
         {
             validarDouble(sender, e);
         }
+    
     }
 }

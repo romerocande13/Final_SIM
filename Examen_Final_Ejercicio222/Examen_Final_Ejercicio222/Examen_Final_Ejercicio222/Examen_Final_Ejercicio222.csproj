@@ -71,12 +71,6 @@
     <Compile Include="Presentación\Simulacion1.Designer.cs">
       <DependentUpon>Simulacion1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Presentación\Simulacion2.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Presentación\Simulacion2.Designer.cs">
-      <DependentUpon>Simulacion2.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Presentación\Datos.resx">
@@ -84,9 +78,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Presentación\Simulacion1.resx">
       <DependentUpon>Simulacion1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Presentación\Simulacion2.resx">
-      <DependentUpon>Simulacion2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
