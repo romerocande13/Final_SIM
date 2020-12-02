@@ -20,6 +20,6 @@ namespace Examen_Final_Ejercicio222.Lógica
 
         public string Estado { get => estado; set => estado = value; }
         public int Cola { get => countCola; set => countCola = value; }
-        internal List<Cheque> Cola1 { get => cola; set => cola = value; }
+        internal List<Cheque> listaDeCola { get => cola; set => cola = value; }
     }
 }
