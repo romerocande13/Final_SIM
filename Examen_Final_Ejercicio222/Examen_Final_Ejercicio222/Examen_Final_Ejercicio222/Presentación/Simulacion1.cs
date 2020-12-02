@@ -12,7 +12,7 @@ using Examen_Final_Ejercicio222.Lógica;
 
 namespace Examen_Final_Ejercicio222.Presentación
 {
-    public partial class Principal : MetroFramework.Forms.MetroForm
+    public partial class Simulacion1 : MetroFramework.Forms.MetroForm
     {
         //INICIALIZACION DE VARIABLES
 
@@ -49,9 +49,7 @@ namespace Examen_Final_Ejercicio222.Presentación
         // List, HashTable
         Hashtable chequesHashTable = new Hashtable();
         Cheque chequeActual= new Cheque();
-
-
-
+        
 
         // Objetos de clases propias
         Maquina maquina1 = new Maquina("Libre", 0);
@@ -59,161 +57,31 @@ namespace Examen_Final_Ejercicio222.Presentación
         GeneradorAleatorios generador = new GeneradorAleatorios();
 
         // Constructor
-        public Principal()
+        public Simulacion1(ClaseDatos oDatos)
         {
             InitializeComponent();
+            this.WindowState = FormWindowState.Maximized;
             this.StyleManager = metroStyleManager1;
-            datosHarcodeados();
-           
-        }      
-       
-        // Validaciones basicas
-        private bool ValidarCampos()
-        {
-            bool ok = true;
+            this.costo1 = oDatos.Costo1;
+            this.costo2 = oDatos.Costo2;
+            this.procesamiento1 = oDatos.Procesamiento1;
+            this.procesamiento2 = oDatos.Procesamiento2;
+            this.vidaUtil1 = oDatos.VidaUtil1;
+            this.vidaUtil2 = oDatos.VidaUtil2;
+            this.chequesAProcesar = oDatos.ChequesAProcesar;
+            this.costoEspera = oDatos.CostoEspera;
+            this.desde = oDatos.Desde;
+            this.hasta = oDatos.Hasta;
+            this.tiempo = oDatos.Tiempo;
+            
 
-            if (txtCosto1.Text.Equals(""))
-            {
-                ok = false;
-                error.SetError(txtCosto1, "Debe ingresar un valor");
-            }
-            else if (double.Parse(txtCosto1.Text) <= 0)
-            {
-                ok = false;
-                error.SetError(txtCosto1, "Debe ingresar un valor mayor a 0");
-            }
-
-            if (txtCosto2.Text.Equals(""))
-            {
-                ok = false;
-                error.SetError(txtCosto2, "Debe ingresar un valor");
-            }
-            else if (double.Parse(txtCosto2.Text) <= 0)
-            {
-                ok = false;
-                error.SetError(txtCosto2, "Debe ingresar un valor mayor a 0");
-            }
-
-            if (txtProcesamiento1.Text.Equals(""))
-            {
-                ok = false;
-                error.SetError(txtProcesamiento1, "Debe ingresar un valor");
-            }
-            else if (double.Parse(txtProcesamiento1.Text) <= 0)
-            {
-                ok = false;
-                error.SetError(txtProcesamiento1, "Debe ingresar un valor mayor a 0");
-            }
-
-            if (txtProcesamiento2.Text.Equals(""))
-            {
-                ok = false;
-                error.SetError(txtProcesamiento2, "Debe ingresar un valor");
-            }
-            else if (double.Parse(txtProcesamiento2.Text) <= 0)
-            {
-                ok = false;
-                error.SetError(txtProcesamiento2, "Debe ingresar un valor mayor a 0");
-            }
-
-            if (txtVidaUtil1.Text.Equals(""))
-            {
-                ok = false;
-                error.SetError(txtVidaUtil1, "Debe ingresar un valor");
-            }
-            else if (double.Parse(txtVidaUtil1.Text) <= 0)
-            {
-                ok = false;
-                error.SetError(txtVidaUtil1, "Debe ingresar un valor mayor a 0");
-            }
-
-            if (txtVidaUtil2.Text.Equals(""))
-            {
-                ok = false;
-                error.SetError(txtVidaUtil2, "Debe ingresar un valor");
-            }
-            else if (double.Parse(txtVidaUtil2.Text) <= 0)
-            {
-                ok = false;
-                error.SetError(txtVidaUtil2, "Debe ingresar un valor mayor a 0");
-            }
-
-            if (txtCostoEspera.Text.Equals(""))
-            {
-                ok = false;
-                error.SetError(txtCostoEspera, "Debe ingresar un valor");
-            }
-            else if (double.Parse(txtCostoEspera.Text) < 0)
-            {
-                ok = false;
-                error.SetError(txtCostoEspera, "Debe ingresar un valor mayor a 0");
-            }
-
-            if (txtChequeProcesar.Text.Equals(""))
-            {
-                ok = false;
-                error.SetError(txtChequeProcesar, "Debe ingresar un valor");
-            }
-            else if (double.Parse(txtChequeProcesar.Text) <= 0)
-            {
-                ok = false;
-                error.SetError(txtChequeProcesar, "Debe ingresar un valor mayor a 0");
-            }
-
-
-            if (txtDesde.Text.Equals(""))
-            {
-                ok = false;
-                error.SetError(txtDesde, "Ingrese algún valor");
-            }
-            else if (double.Parse(txtDesde.Text) > double.Parse(txtVidaUtil1.Text) || double.Parse(txtDesde.Text) > double.Parse(txtVidaUtil2.Text))
-            {
-                ok = false;
-                error.SetError(txtDesde, "El valor j debe ser menor o igual al tiempo X ingresado");
-            }
-
-
-            if (txtHasta.Text.Equals(""))
-            {
-                ok = false;
-                error.SetError(txtHasta, "Ingrese algún valor");
-            }
-            else if (txtHasta.Text.Equals("0"))
-            {
-                ok = false;
-                error.SetError(txtHasta, "Debe ingresar un valor mayor a 0");
-            }
-            return ok;
         }
 
-        private void btnGrabar_Click(object sender, EventArgs e)
-        {
-            if (ValidarCampos())
-            {
-                //INICIALIZACION
-
-                //Datos de ingreso
-                costo1 = Convert.ToDouble(txtCosto1.Text);
-                costo2 = Convert.ToDouble(txtCosto2.Text);
-                procesamiento1 = Convert.ToDouble(txtProcesamiento1.Text);
-                procesamiento2 = Convert.ToDouble(txtProcesamiento2.Text);
-                vidaUtil1 = Convert.ToDouble(txtVidaUtil1.Text);
-                vidaUtil2 = Convert.ToDouble(txtVidaUtil2.Text);
-                chequesAProcesar = Convert.ToInt32(txtChequeProcesar.Text);
-                costoEspera = Convert.ToDouble(txtCostoEspera.Text);
-                desde = Convert.ToDouble(txtDesde.Text);
-                hasta = Convert.ToDouble(txtHasta.Text);
-                tiempo = vidaUtil1;             
-
-            }
-        }
-
-
-
        
+
         // SIMULACION MAQUINA 1 ...
 
-        private void btnSimular1_Click(object sender, EventArgs e)
+        private void btnSimular_Click(object sender, EventArgs e)
         {
             // PRIMERA ITERACION
 
@@ -354,6 +222,11 @@ namespace Examen_Final_Ejercicio222.Presentación
 
 
             }
+            //DATOS DE RESUMEN 
+
+            label5.Text = acumCosto.ToString();
+            label6.Text = maxEspera.ToString();
+            label7.Text = chequesProcesados.ToString();
         }
 
 
@@ -588,55 +461,7 @@ namespace Examen_Final_Ejercicio222.Presentación
             return arrayAux;
         }
 
-
-
-
-
-
-        private void btnBorrar_Click(object sender, EventArgs e)
-        {
-
-        }
-                              
-        // Configuracion de pantalla, cambio de tamaño y tab
-        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (tabControl1.SelectedTab.Name == "datos")
-            {
-                this.WindowState = FormWindowState.Normal;
-                tabControl1.Size = new Size(1500, 725);
-            }
-            if(tabControl1.SelectedTab.Name == "simulacion1")
-            {
-                this.WindowState = FormWindowState.Maximized;
-                tabControl1.Size = new Size(1500, 725);
-                dgvSimulacion1.Size = new Size(1400, 600);
-                btnSimular1.Location = new Point(1315, 650);
-            }
-            if (tabControl1.SelectedTab.Name == "simulacion2")
-            {
-                this.WindowState = FormWindowState.Maximized;
-                tabControl1.Size = new Size(1500, 725);
-                dgvSimulacion2.Size = new Size(1400, 600);
-                btnSimular2.Location = new Point(1315, 650);
-
-            }
-
-        }
-
-        private void datosHarcodeados()
-        {
-            txtCosto1.Text = 40000.ToString();
-            txtCosto2.Text = 30000.ToString();
-            txtProcesamiento1.Text = 2.ToString();
-            txtProcesamiento2.Text = 1000.ToString();
-            txtVidaUtil1.Text = 400.ToString();
-            txtVidaUtil2.Text = 400.ToString();
-            txtChequeProcesar.Text = 3.ToString();
-            txtCostoEspera.Text = 10.ToString();
-            txtDesde.Text = 0.ToString();
-            txtHasta.Text = 300.ToString();
-        }
+        
     }
 }
 

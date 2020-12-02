@@ -17,7 +17,7 @@ namespace Examen_Final_Ejercicio222
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Principal());
+            Application.Run(new Datos());
         }
     }
 }
