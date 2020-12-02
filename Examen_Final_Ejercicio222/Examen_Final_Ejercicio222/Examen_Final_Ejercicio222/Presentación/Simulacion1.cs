@@ -55,6 +55,8 @@ namespace Examen_Final_Ejercicio222.Presentación
         double tiempo;
         int cantCheques;
         double media;
+        double Iteraciones;
+        
 
 
         // List, HashTable
@@ -89,6 +91,8 @@ namespace Examen_Final_Ejercicio222.Presentación
             this.desde = oDatos.Desde;
             this.hasta = oDatos.Hasta;
             this.tiempo = oDatos.Tiempo;
+            this.Iteraciones = oDatos.CantIteraciones;
+
             if (modo.Equals("sim1"))
             {
                 this.FormMode1 = FormMode.sim1;
@@ -96,6 +100,7 @@ namespace Examen_Final_Ejercicio222.Presentación
             else if (modo.Equals("sim2"))
             {
                 this.FormMode1 = FormMode.sim2;
+                procesamiento1 = procesamiento2;
             }
 
         }
@@ -160,7 +165,7 @@ namespace Examen_Final_Ejercicio222.Presentación
 
 
             
-            while(reloj <= tiempo)
+            while(reloj <= tiempo || nroIteracion <= Iteraciones)
             {
                 // Se incrementa el nro de iteracion 
                 nroIteracion++;
@@ -233,26 +238,26 @@ namespace Examen_Final_Ejercicio222.Presentación
 
                 
 
-                if ((reloj >= desde && cantIteraciones <= hasta) || reloj >= tiempo)
+                if (reloj >= desde && cantIteraciones <= hasta || nroIteracion == Iteraciones) 
                 {
                     string[] fila = cargarFila();
 
                     dgvSIM.Rows.Add(fila);
 
                     //Para cargar los estados de los cheques correspondientes...
-                    foreach (DictionaryEntry item in chequesHashTable)
-                    {
-                        Cheque aux = (Cheque)item.Value;
+                    //foreach (DictionaryEntry item in chequesHashTable)
+                    //{
+                    //    Cheque aux = (Cheque)item.Value;
 
-                        if (dgvSIM.Columns["colCheque" + aux.Id.ToString()] != null)
-                        {
-                            if (!(aux.Estado.Equals("")))
-                            {
-                                dgvSIM.Rows[dgvSIM.Rows.Count - 1].Cells["colCheque" + aux.Id.ToString()].Value = aux.Estado;
-                                dgvSIM.Rows[dgvSIM.Rows.Count - 1].Cells["colHoraLlegada" + aux.Id.ToString().ToString()].Value = aux.HoraLlegada;
-                            }
-                        }
-                    }
+                    //    if (dgvSIM.Columns["colCheque" + aux.Id.ToString()] != null)
+                    //    {
+                    //        if (!(aux.Estado.Equals("")))
+                    //        {
+                    //            dgvSIM.Rows[dgvSIM.Rows.Count - 1].Cells["colCheque" + aux.Id.ToString()].Value = aux.Estado;
+                    //            dgvSIM.Rows[dgvSIM.Rows.Count - 1].Cells["colHoraLlegada" + aux.Id.ToString().ToString()].Value = aux.HoraLlegada;
+                    //        }
+                    //    }
+                    //}
                 }
 
 
@@ -271,11 +276,11 @@ namespace Examen_Final_Ejercicio222.Presentación
             }
             else if (formMode == FormMode.sim2)
             {
-                //DATOS DE RESUMEN 2
+                //DATOS DE RESUMEN 
 
                 label10.Text = acumCosto.ToString();
                 label9.Text = maxEspera.ToString();
-                label8.Text = chequesProcesados.ToString();
+                label7.Text = chequesProcesados.ToString();
                 oResultados2.AcumCosto = acumCosto;
                 oResultados2.MaxEspera = maxEspera;
                 oResultados2.ChequesProcesados = chequesProcesados;
@@ -330,7 +335,7 @@ namespace Examen_Final_Ejercicio222.Presentación
                 chequesHashTable.Add(oCheque.Id, oCheque);
 
                 //Se agrega la columna de cheque..
-                agregarColumnaCheque(oCheque);
+                //agregarColumnaCheque(oCheque);
             }
         }
 
@@ -411,7 +416,7 @@ namespace Examen_Final_Ejercicio222.Presentación
 
         private void generarFinProcesamiento(double procesamiento)
         {  
-            tiempoAtencion = (1/procesamiento1).ToString();
+            tiempoAtencion = ((1/procesamiento1)).ToString();
             finProcesamiento = (double.Parse(tiempoAtencion) + reloj).ToString();
         }
 

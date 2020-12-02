@@ -42,7 +42,7 @@ namespace Examen_Final_Ejercicio222.Lógica
 
         public double generadorExpNeg(double media, double random)
         {
-            return Math.Round(-media * Math.Log(1 - random),2);
+            return Math.Round((-media * Math.Log(1 - random)),2);
         }
     }
 }

@@ -46,6 +46,7 @@ namespace Examen_Final_Ejercicio222.Presentación
             oDatos.Desde = Convert.ToDouble(txtDesde.Text);
             oDatos.Hasta = Convert.ToDouble(txtHasta.Text);
             oDatos.Tiempo = oDatos.VidaUtil1;
+            oDatos.CantIteraciones = Convert.ToInt32(txtIteraciones.Text);
             return oDatos;
 
         }
@@ -190,6 +191,7 @@ namespace Examen_Final_Ejercicio222.Presentación
         {
             if (ValidarCampos())
             {
+                BorrarMensajesError();
                 oDatos = grabar();
                 frmSimulacion1 = new Simulacion1(oDatos, "sim1");                
                 frmSimulacion1.Show();
@@ -206,33 +208,33 @@ namespace Examen_Final_Ejercicio222.Presentación
             //}
             if (ValidarCampos())
             {
+                BorrarMensajesError();
                 oDatos = grabar();
                 frmSimulacion1 = new Simulacion1(oDatos, "sim2");                
                 frmSimulacion1.Show();
             }
         }
 
-        //private void BorrarMensajesError()
-        //{
-        //    errorNuloProvider.SetError(txtTiempo, "");
-        //    errorNuloProvider.SetError(txtHasta, "");
-        //    errorNuloProvider.SetError(txtMedia, "");
-        //    errorNuloProvider.SetError(txtTiempoAtA, "");
-        //    errorNuloProvider.SetError(txtTiempoAtB, "");
-        //    errorNuloProvider.SetError(txtTiempoCocA, "");
-        //    errorNuloProvider.SetError(txtTiempoCocB, "");
-        //    errorNuloProvider.SetError(txtDesde, "");
+        private void BorrarMensajesError()
+        {
+            error.SetError(txtCosto1, "");
+            error.SetError(txtCosto2, "");
+            error.SetError(txtProcesamiento1, "");
+            error.SetError(txtProcesamiento2, "");
+            error.SetError(txtVidaUtil1, "");
+            error.SetError(txtVidaUtil2, "");
+            error.SetError(txtChequeProcesar, "");
+            error.SetError(txtCostoEspera, "");
 
-        //    errorDatoIncorrectoProvider.SetError(txtTiempo, "");
-        //    errorDatoIncorrectoProvider.SetError(txtHasta, "");
-        //    errorDatoIncorrectoProvider.SetError(txtMedia, "");
-        //    errorDatoIncorrectoProvider.SetError(txtTiempoAtA, "");
-        //    errorDatoIncorrectoProvider.SetError(txtTiempoAtB, "");
-        //    errorDatoIncorrectoProvider.SetError(txtTiempoCocA, "");
-        //    errorDatoIncorrectoProvider.SetError(txtTiempoCocB, "");
-        //    errorDatoIncorrectoProvider.SetError(txtDesde, "");
-        //    errorDatoIncorrectoProvider.SetError(dgvProbDestino, "");
-        //}
+            error.SetError(txtDesde, "");
+            error.SetError(txtHasta, "");            
+            
+        }   
+
+
+
+
+
 
         private void tabControl2_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -263,6 +265,84 @@ namespace Examen_Final_Ejercicio222.Presentación
 
                 }
             }
+        }
+
+
+
+        //EVENTOS DE TEXTBOX 
+        private void validarEntero(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+
+
+        private void validarDouble(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+               (e.KeyChar != ','))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if ((e.KeyChar == ',') && ((sender as TextBox).Text.IndexOf(',') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtCosto1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            validarDouble(sender, e);
+        }
+
+        private void txtCosto2_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            validarDouble(sender, e);
+        }
+
+        private void txtProcesamiento1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //validarDouble(sender, e);
+        }
+
+        private void txtProcesamiento2_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //validarDouble(sender, e);
+        }
+
+        private void txtVidaUtil1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //validarDouble(sender, e);
+        }
+
+        private void txtVidaUtil2_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //validarDouble(sender, e);
+        }
+
+        private void txtChequeProcesar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            validarEntero(sender, e);
+        }
+
+        private void txtCostoEspera_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            validarDouble(sender, e);
+        }
+
+        private void txtDesde_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            validarDouble(sender, e);
+        }
+
+        private void txtHasta_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            validarDouble(sender, e);
         }
     }
 }

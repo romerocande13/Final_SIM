@@ -22,6 +22,7 @@ namespace Examen_Final_Ejercicio222.Lógica
         double maxEspera;
         double chequesProcesados;
         double acumCosto;
+        double cantIteraciones;
 
         public ClaseDatos()
         {
@@ -41,5 +42,6 @@ namespace Examen_Final_Ejercicio222.Lógica
         public double MaxEspera { get => maxEspera; set => maxEspera = value; }
         public double ChequesProcesados { get => chequesProcesados; set => chequesProcesados = value; }
         public double AcumCosto { get => acumCosto; set => acumCosto = value; }
+        public double CantIteraciones { get => cantIteraciones; set => cantIteraciones = value; }
     }
 }

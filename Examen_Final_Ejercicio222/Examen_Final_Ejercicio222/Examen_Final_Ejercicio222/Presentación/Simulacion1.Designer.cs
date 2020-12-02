@@ -440,7 +440,7 @@
             this.dgvSimulacion2.EnableHeadersVisualStyles = false;
             this.dgvSimulacion2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.dgvSimulacion2.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.dgvSimulacion2.Location = new System.Drawing.Point(24, 96);
+            this.dgvSimulacion2.Location = new System.Drawing.Point(23, 96);
             this.dgvSimulacion2.Name = "dgvSimulacion2";
             this.dgvSimulacion2.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
